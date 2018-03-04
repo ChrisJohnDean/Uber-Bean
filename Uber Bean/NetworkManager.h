@@ -10,9 +10,10 @@
 
 @interface NetworkManager : NSObject
 
-- (void)makeNetworkRequest;
+@property (nonatomic) NSDictionary *yelpCafeDict;
+
+- (void)makeNetworkRequestWithLatitude:(NSString*)latitude withLongitude:(NSString*)longitude;
 - (void)parseResponseData:(NSData*)data;
 
-@property (nonatomic) NSDictionary *yelpCafeDict;
 
 @end

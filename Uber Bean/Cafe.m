@@ -14,12 +14,15 @@
 {
     self = [super init];
     if (self) {
+        NSDictionary *coordinateDict = cafe[@"coordinates"];
+        
         _imageUrl = cafe[@"image_url"];
         _name = cafe[@"name"];
-        _longitude = cafe[@"longitude"];
-        _latitude = cafe[@"latitude"];
+        _longitude = coordinateDict[@"longitude"];
+        _latitude = coordinateDict[@"latitude"];
     }
     return self;
 }
 
 @end
+

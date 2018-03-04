@@ -10,6 +10,7 @@
 @import CoreLocation;
 @import MapKit;
 #import "Cafe.h"
+#import "NetworkManager.h"
 
 @interface ViewController () <CLLocationManagerDelegate>
 
@@ -17,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) NSString *latitude;
 @property (nonatomic) NSString *longitude;
+@property (nonatomic) NetworkManager *networkManager;
+@property (nonatomic) NSMutableArray *arrayOfCafes;
 
 @end
 
@@ -31,6 +34,9 @@
     
     self.mapView.showsUserLocation = YES;
     
+    _networkManager = [[NetworkManager alloc] init];
+    
+    
 }
 
 
@@ -44,6 +50,9 @@
     CLLocationCoordinate2D coord = myLocation.coordinate;
     self.latitude = [[NSNumber numberWithDouble:coord.latitude] stringValue];
     self.longitude = [[NSNumber numberWithDouble:coord.longitude] stringValue];
+    [self.networkManager makeNetworkRequestWithLatitude:self.latitude withLongitude:self.longitude];
+    [self parseJSONArray];
+    
     
     MKCoordinateRegion region = MKCoordinateRegionMake(coord, MKCoordinateSpanMake(2.0/111, 2.0/111));
     self.mapView.region = region;
@@ -59,7 +68,16 @@
     }
 }
 
-
+- (void)parseJSONArray {
+    NSDictionary *cafesDict = self.networkManager.yelpCafeDict;
+    NSArray *cafeArray = cafesDict[@"businesses"];
+    for(NSDictionary *dict in cafeArray) {
+        Cafe *cafe = [[Cafe alloc] initWithDict:dict];
+        [self.arrayOfCafes addObject:cafe];
+        NSLog(@"repo: %@", dict[@"name"]);
+    }
+    
+}
 
 @end
 

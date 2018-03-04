@@ -15,4 +15,6 @@
 @property (nonatomic) NSNumber *latitude;
 @property (nonatomic) NSNumber *longitude;
 
+- (instancetype)initWithDict:(NSDictionary*)cafe;
+
 @end
