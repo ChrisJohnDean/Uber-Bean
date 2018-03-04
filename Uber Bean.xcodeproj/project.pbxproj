@@ -15,6 +15,8 @@
 		89062595204A258800A4BAA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89062594204A258800A4BAA3 /* main.m */; };
 		8906259F204A258800A4BAA3 /* Uber_BeanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906259E204A258800A4BAA3 /* Uber_BeanTests.m */; };
 		890625AA204A258800A4BAA3 /* Uber_BeanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890625A9204A258800A4BAA3 /* Uber_BeanUITests.m */; };
+		890625BC204B7BCF00A4BAA3 /* Cafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 890625BB204B7BCF00A4BAA3 /* Cafe.m */; };
+		890625BF204B85E400A4BAA3 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 890625BE204B85E400A4BAA3 /* NetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		890625A5204A258800A4BAA3 /* Uber BeanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Uber BeanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		890625A9204A258800A4BAA3 /* Uber_BeanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Uber_BeanUITests.m; sourceTree = "<group>"; };
 		890625AB204A258800A4BAA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		890625BA204B7BCF00A4BAA3 /* Cafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cafe.h; sourceTree = "<group>"; };
+		890625BB204B7BCF00A4BAA3 /* Cafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cafe.m; sourceTree = "<group>"; };
+		890625BD204B85E400A4BAA3 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		890625BE204B85E400A4BAA3 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,10 @@
 				89062590204A258800A4BAA3 /* LaunchScreen.storyboard */,
 				89062593204A258800A4BAA3 /* Info.plist */,
 				89062594204A258800A4BAA3 /* main.m */,
+				890625BA204B7BCF00A4BAA3 /* Cafe.h */,
+				890625BB204B7BCF00A4BAA3 /* Cafe.m */,
+				890625BD204B85E400A4BAA3 /* NetworkManager.h */,
+				890625BE204B85E400A4BAA3 /* NetworkManager.m */,
 			);
 			path = "Uber Bean";
 			sourceTree = "<group>";
@@ -265,8 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890625BC204B7BCF00A4BAA3 /* Cafe.m in Sources */,
 				8906258A204A258800A4BAA3 /* ViewController.m in Sources */,
 				89062595204A258800A4BAA3 /* main.m in Sources */,
+				890625BF204B85E400A4BAA3 /* NetworkManager.m in Sources */,
 				89062587204A258800A4BAA3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

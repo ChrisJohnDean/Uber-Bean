@@ -9,11 +9,14 @@
 #import "ViewController.h"
 @import CoreLocation;
 @import MapKit;
+#import "Cafe.h"
 
 @interface ViewController () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *manager;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) NSString *latitude;
+@property (nonatomic) NSString *longitude;
 
 @end
 
@@ -38,7 +41,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     CLLocation *myLocation = locations[0];
-    MKCoordinateRegion region = MKCoordinateRegionMake(myLocation.coordinate, MKCoordinateSpanMake(2.0/111, 2.0/111));
+    CLLocationCoordinate2D coord = myLocation.coordinate;
+    self.latitude = [[NSNumber numberWithDouble:coord.latitude] stringValue];
+    self.longitude = [[NSNumber numberWithDouble:coord.longitude] stringValue];
+    
+    MKCoordinateRegion region = MKCoordinateRegionMake(coord, MKCoordinateSpanMake(2.0/111, 2.0/111));
     self.mapView.region = region;
 }
 
@@ -51,6 +58,8 @@
         [self.manager requestLocation];
     }
 }
+
+
 
 @end
 
