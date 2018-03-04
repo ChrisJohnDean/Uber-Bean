@@ -11,7 +11,7 @@
 @interface NetworkManager : NSObject
 
 @property (nonatomic) NSDictionary *yelpCafeDict;
-
+@property (nonatomic) NSMutableArray *arrayOfCafes;
 - (void)makeNetworkRequestWithLatitude:(NSString*)latitude withLongitude:(NSString*)longitude;
 - (void)parseResponseData:(NSData*)data;
 

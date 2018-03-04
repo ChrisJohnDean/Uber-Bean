@@ -51,7 +51,6 @@
     self.latitude = [[NSNumber numberWithDouble:coord.latitude] stringValue];
     self.longitude = [[NSNumber numberWithDouble:coord.longitude] stringValue];
     [self.networkManager makeNetworkRequestWithLatitude:self.latitude withLongitude:self.longitude];
-    [self parseJSONArray];
     
     
     MKCoordinateRegion region = MKCoordinateRegionMake(coord, MKCoordinateSpanMake(2.0/111, 2.0/111));
@@ -68,16 +67,6 @@
     }
 }
 
-- (void)parseJSONArray {
-    NSDictionary *cafesDict = self.networkManager.yelpCafeDict;
-    NSArray *cafeArray = cafesDict[@"businesses"];
-    for(NSDictionary *dict in cafeArray) {
-        Cafe *cafe = [[Cafe alloc] initWithDict:dict];
-        [self.arrayOfCafes addObject:cafe];
-        NSLog(@"repo: %@", dict[@"name"]);
-    }
-    
-}
 
 @end
 

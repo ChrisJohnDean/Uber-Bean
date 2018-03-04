@@ -7,6 +7,7 @@
 //
 
 #import "NetworkManager.h"
+#import "Cafe.h"
 
 @implementation NetworkManager
 
@@ -35,17 +36,24 @@
 
 - (void)parseResponseData:(NSData*)data {
     
-    //NSError *error = nil;
+    NSError *error = nil;
     //id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    if(error != nil) {
+        NSLog(@"%@", error);
+        return;
+    }
     self.yelpCafeDict = jsonObject;
     
-//    if(error != nil) {
-//        NSLog(@"%@", error);
-//        return;
-//    } else if([jsonObject isKindOfClass:[NSDictionary class]]) {
-//        self.yelpCafeDict = (NSDictionary*)jsonObject;
-//    }
+    NSArray *cafeArray = self.yelpCafeDict[@"businesses"];
+    for(NSDictionary *dict in cafeArray) {
+        Cafe *cafe = [[Cafe alloc] initWithDict:dict];
+        [self.arrayOfCafes addObject:cafe];
+        NSLog(@"repo: %@", dict[@"name"]);
+    }
+
 }
+
 
 @end
