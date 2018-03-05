@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkManager.h"
 
-
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <cafesDelegate>
 
 
 

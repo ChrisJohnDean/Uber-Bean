@@ -10,7 +10,6 @@
 @import CoreLocation;
 @import MapKit;
 #import "Cafe.h"
-#import "NetworkManager.h"
 
 @interface ViewController () <CLLocationManagerDelegate>
 
@@ -50,6 +49,8 @@
     CLLocationCoordinate2D coord = myLocation.coordinate;
     self.latitude = [[NSNumber numberWithDouble:coord.latitude] stringValue];
     self.longitude = [[NSNumber numberWithDouble:coord.longitude] stringValue];
+    
+    self.networkManager.delegate = self;
     [self.networkManager makeNetworkRequestWithLatitude:self.latitude withLongitude:self.longitude];
     
     
@@ -67,6 +68,12 @@
     }
 }
 
+- (void)passCafesArray:(NSMutableArray*)arrayOfCafes {
+    self.arrayOfCafes = arrayOfCafes;
+    for(Cafe *cafe in self.arrayOfCafes) {
+        NSLog(@"%@", cafe.name);
+    }
+}
 
 @end
 

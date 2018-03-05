@@ -8,7 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class NetworkManager;
+@protocol cafesDelegate <NSObject>
+
+- (void)passCafesArray:(NSMutableArray*)arrayOfCafes;
+
+@end
+
 @interface NetworkManager : NSObject
+
+@property (nonatomic, weak) id<cafesDelegate> delegate;
 
 @property (nonatomic) NSDictionary *yelpCafeDict;
 @property (nonatomic) NSMutableArray *arrayOfCafes;
