@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@import MapKit;
 
-@interface Cafe : NSObject
+@interface Cafe : NSObject <MKAnnotation>
+
+//Properties from MKAnnotation protocol
+@property(nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property(nonatomic, readonly, copy) NSString *title;
 
 @property (nonatomic) NSString *imageUrl;
 @property (nonatomic) NSString *name;
