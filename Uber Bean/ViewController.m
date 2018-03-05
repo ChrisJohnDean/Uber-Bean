@@ -77,13 +77,11 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mapView addAnnotations:self.arrayOfCafes];
     });
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mapView showAnnotations:self.arrayOfCafes animated:YES];
-    });
+    [self.mapView showAnnotations:self.arrayOfCafes animated:YES];
+   
 }
 
-//
+//Lets you add custom changes to your map veiw annotation
 //- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
 //    
 //    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pinny" forAnnotation:annotation];
