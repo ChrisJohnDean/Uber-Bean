@@ -35,10 +35,9 @@
     
     _networkManager = [[NetworkManager alloc] init];
     
-    [self.mapView registerClass:[MKPinAnnotationView class] forAnnotationViewWithReuseIdentifier:@"pinny"];
+    //[self.mapView registerClass:[MKPinAnnotationView class] forAnnotationViewWithReuseIdentifier:@"pinny"];
     self.mapView.delegate = self;
 }
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -76,25 +75,28 @@
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-    
         [self.mapView addAnnotations:self.arrayOfCafes];
-        
+    });
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mapView showAnnotations:self.arrayOfCafes animated:YES];
     });
 }
 
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    
-    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pinny" forAnnotation:annotation];
-    if (annotationView) {
-        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinny"];
-    }
-    
-    // Do any customization
-    annotationView.canShowCallout = YES;
-    
-    return annotationView;
-}
+//
+//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//    
+//    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pinny" forAnnotation:annotation];
+//    if (annotationView) {
+//        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinny"];
+//    }
+//    
+//    [self.mapView showAnnotations:self.arrayOfCafes animated:YES];
+//    // Do any customization
+//    annotationView.canShowCallout = YES;
+//    
+//    return annotationView;
+//}
 
 @end
 
